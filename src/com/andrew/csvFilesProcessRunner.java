@@ -1,7 +1,6 @@
 package com.andrew;
 
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Map;
 
@@ -13,8 +12,8 @@ public class csvFilesProcessRunner {
         Path errorsPath = Path.of("resources", "errors.csv");
 
         try {
-            Map<String, String> priceMap = csvReadHelper.readIdPriceCsv(firstFilePath);
-            Map<String, String> nameMap = csvReadHelper.readIdNameCsv(secondFilePath);
+            Map<String, String> priceMap = csvReadHelper.readIdAndSecondValueCSV(firstFilePath);
+            Map<String, String> nameMap = csvReadHelper.readIdAndSecondValueCSV(secondFilePath);
             mapsCompareHelper.compareMaps(resultPath, errorsPath, priceMap, nameMap);
         } catch (IOException e) {
             e.printStackTrace();
